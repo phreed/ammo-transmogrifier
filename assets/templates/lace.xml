@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template type="lace" label="(L)ACE Report">
+	<text id="L (liquid)" />
+	<text id="A (ammo)" />
+	<text id="C (casualties)" />
+	<text id="E (equipment)" />
+</template>

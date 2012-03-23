@@ -1,0 +1,6 @@
+bin/
+target/
+gen/
+local.properties
+*.bak
+

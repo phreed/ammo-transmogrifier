@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template type="saltr" label="SALTR Report">
+	<text id="S (size)" />
+	<text id="A (activity)" />
+	<location id="L (location)" hint="Tap Button to Grab Location" prepop="location" text="31NAA6602100000"/>
+	<text id="T (time)" prepop="time_formatted"/>
+	<text id="R (response)" />
+</template>

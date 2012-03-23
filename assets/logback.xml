@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+ <!--
+   By default encoders are assigned the type
+     ch.qos.logback.classic.encoder.PatternLayoutEncoder
+ -->
+<configuration>
+
+  <appender name="LOGCAT" class="ch.qos.logback.classic.android.LogcatAppender">
+    <checkLoggable>true</checkLoggable>
+    <tagEncoder>
+       <pattern>%logger{22}</pattern>
+    </tagEncoder>
+    <encoder>
+       <pattern>[%method] %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <root level="TRACE">
+    <appender-ref ref="LOGCAT" />
+  </root>
+</configuration>

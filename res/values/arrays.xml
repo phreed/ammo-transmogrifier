@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="picture_resolutions">
+		<item>320x200</item>
+		<item>640x400</item>
+		<item>1024x768</item>
+	</string-array>
+	<string-array name="pictureValues_resolution">
+		<item>320</item>
+		<item>640</item>
+		<item>1024</item>
+	</string-array>
+	<string-array name="coordinate_types">
+		<item>MGRS</item>
+	<!-- 	<item>LatLon</item> -->
+	</string-array>
+	<string-array name="coordinateValues_types">
+		<item>MGRS</item>
+		<item>LatLon</item>
+	</string-array>
+	<string-array name="custom_spinner_entries">
+		<item>Select Template</item>
+		<item>SPOT</item>
+		<item>IDE</item>
+		<item>MEDIVAC</item>
+	</string-array>
+	<string-array name="number_of_precedence">
+		<item>Urgent</item>
+		<item>Urgent Surgical</item>
+		<item>Priority</item>
+		<item>Routine</item>
+		<item>Convenience</item>
+	</string-array>
+
+	<string-array name="special_equipment_required">
+		<item>None</item>
+		<item>Hoist</item>
+		<item>Extraction Equipment</item>
+		<item>Ventilator</item>
+	</string-array>
+
+	<string-array name="number_of_patients">
+		<item>Litter</item>
+		<item>Ambulator</item>
+	</string-array>
+	
+	<string-array name="security_at_pickup_site">
+		<item>N - No enemy troops in the area</item>
+		<item>P - Possible enemy troops in the area (approach with caution)</item>
+		<item>E - Enemy troops in area (approach with cation)</item>
+		<item>X - Enemy troops in area (armed escort required)</item>
+	</string-array>
+
+	<string-array name="method_of_marking_pick_up_site">
+		<item>Panels</item>
+		<item>Pyrotechnic Signal</item>
+		<item>Smoke Signal</item>
+		<item>None</item>
+		<item>Other</item>
+	</string-array>
+	
+	<string-array name="patient_nationality_and_status">
+		<item>US Military</item>
+		<item>US Civilian</item>
+		<item>Non-US military</item>
+		<item>Non-US civilian</item>
+		<item>EPW</item>
+	</string-array>
+	
+	<string-array name="nbc_contamination">
+		<item>N - Nuclear</item>
+		<item>B - Biological</item>
+		<item>C - Chemical</item>
+	</string-array>
+	
+
+</resources>

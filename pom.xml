@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>edu.vu.isis</groupId>
+	<artifactId>ammolib</artifactId>
+	<packaging>jar</packaging>
+	<version>put your version number here</version>
+	<name>ammolib</name>
+
+	<distributionManagement>
+                <repository>
+                        <id>nexus-eucleo</id>
+                        <url>http://fiddler.aterrasys.com:8081/nexus/content/repositories/eucleo</url>
+                </repository>
+        </distributionManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.aterrasys</groupId>
+			<artifactId>ExtensionPoints</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.aterrasys</groupId>
+			<artifactId>commons.core</artifactId>
+			<version>${snapshot.version}-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>plugins</groupId>
+			<artifactId>core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>plugins</groupId>
+			<artifactId>host</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.aterrasys</groupId>
+			<artifactId>commons.client</artifactId>
+			<version>${snapshot.version}-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.aterrasys</groupId>
+			<artifactId>commons.resources</artifactId>
+			<version>${snapshot.version}-SNAPSHOT</version>
+			<type>apklib</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+  			<groupId>com.parc</groupId>
+ 			<artifactId>aecis.core</artifactId>
+  			<version>20120207.00</version>
+  			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>transapps</groupId>
+			<artifactId>tasettings-api</artifactId>
+			<version>0.0.2</version>
+		  <scope>compile</scope>
+		</dependency>		     
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>1.6</version>
+			<scope>compile</scope>
+			<type>jar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-android</artifactId>
+			<version>1.6.1-RC1</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.aterrasys</groupId>
+			<artifactId>osmdroid</artifactId>
+			<version>${snapshot.version}-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.james</groupId>
+			<artifactId>apache-mime4j</artifactId>
+			<version>0.6</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.0.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		
+	<dependency>
+			<groupId>com.aterrasys</groupId>
+			<artifactId>osmdroidlib</artifactId>
+			<version>${snapshot.version}-SNAPSHOT</version>
+			<type>apklib</type>
+			<scope>compile</scope>
+		</dependency>
+		  
+		<dependency>
+			<groupId>edu.vu.isis</groupId>
+			<artifactId>dashlib</artifactId>
+			<version>1.2.9</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>edu.vu.isis</groupId>
+			<artifactId>ammolib</artifactId>
+			<version>1.2.9</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		
+	
+	</dependencies>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<!--
+			Bug in release plugin prevents other plugin configurations from carrying through to child from parent, and
+			forked maven process to create release POM will not use source 1.5 unless specified here.  Lame... 
+			-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
