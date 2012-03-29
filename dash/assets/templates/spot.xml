@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template type="spot" label="Spot Report">
+	<text id="ID" prepop="time_utc" />
+	<text id="DTG" prepop="time_formatted" />
+	<text id="Unit" prepop="unit"/>
+	<pulldown id="Size">
+		<choice>Individual</choice>
+		<choice>Squad</choice>
+		<choice>Platoon</choice>
+		<choice>Company</choice>
+		<choice>Battalion</choice>
+		<choice>Brigade</choice>
+		<choice>Division</choice>
+		<choice>1</choice>
+		<choice>2</choice>
+		<choice>5</choice>
+		<choice>10</choice>
+	</pulldown>
+
+	<text id="Activity" text="Static"/>
+	<location id="LOC" hint="Tap Button to Grab Location" prepop="location" text="31NAA6602100000"/>
+	<text id="En Unit" text="Unknown"/>
+	<text id="OBS DTG" prepop="time_formatted"/>
+	<pulldown id="EQPMT">
+		<choice>Dismount</choice>
+		<choice>Light Truck</choice>
+		<choice>Mortar</choice>
+		<choice>MG Squad</choice>
+		<choice>Tank</choice>
+		<choice>Inf Carrier Veh</choice>
+		<choice>IED</choice>
+		<choice>Barrier</choice>
+	</pulldown>
+	<pulldown id="Assessmt">
+		<choice>Enemy</choice>
+		<choice>Neutral</choice>
+		<choice>Friend</choice>
+		<choice>Other</choice>
+	</pulldown>
+	<text id="Narrative" hint="Observed" text="Observed" />
+	<text id="AUTH" hint="EYES ON" text="EYES ON"/>
+
+
+</template>

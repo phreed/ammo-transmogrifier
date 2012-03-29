@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<TextView android:id="@+id/alertDialogAudioEntryInstructions"
+		android:layout_height="wrap_content" android:layout_width="wrap_content"
+		android:layout_marginLeft="20dip" android:layout_marginRight="20dip"
+		android:text="@string/alert_dialog_audio_entry_instructions"
+		android:gravity="left" android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+	<TextView android:id="@+id/alertDialogTimerTextView"
+		android:layout_height="wrap_content" android:layout_width="wrap_content"
+		android:layout_gravity="center" android:text=""/>
+
+	<!-- We have to create our own buttons for the dialog because the default 
+		ones dismiss on click. We don't want that. -->
+	<LinearLayout android:layout_height="wrap_content"
+		android:layout_width="fill_parent" android:background="#CCCCCC"
+		android:orientation="horizontal" android:layout_gravity="center"
+		android:paddingTop="3dip" android:layout_marginTop="3dip">
+
+		<Button android:id="@+id/alertDialogAudioEntryStartButton"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:text="Start"
+			android:layout_weight="1"/>
+
+		<Button android:id="@+id/alertDialogAudioEntryCancelButton"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:text="Cancel" android:layout_weight="1"/>
+
+		<Button android:id="@+id/alertDialogAudioEntryStopButton"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:text="Stop" android:layout_weight="1"/>
+	</LinearLayout>
+
+
+
+</LinearLayout>

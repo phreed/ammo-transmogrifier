@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	
+	<properties>
+		<!-- ammogen properties -->		
+		<ammogen.type>provider</ammogen.type>		
+		<ammogen.template.file>template/ammo_content_provider.stg</ammogen.template.file>
+		<ammogen.contract.file>contract/incident.xml</ammogen.contract.file>
+		<ammogen.schema.lib>edu.vu.isis:dashlib:jar</ammogen.schema.lib>
+		<ammogen.output.dir>${basedir}/target/generated-sources/ammogen</ammogen.output.dir>
+		<ammogen.maven.targets>${ammo.home}/AmmoGenerator/ant/maven-targets.xml</ammogen.maven.targets>
+	</properties>
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>edu.vu.isis</groupId>
+	<artifactId>dash</artifactId>
+	<packaging>apk</packaging>
+	<version>1.4.4</version>
+	<name>dash</name>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<url>http://fiddler.aterrasys.com:8081/nexus/content/repositories/vanderbilt</url>
+		</repository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<url>http://fiddler.aterrasys.com:8081/nexus/content/repositories/vanderbilt</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-android</artifactId>
+			<version>1.6.1-RC1</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>edu.vu.isis</groupId>
+			<artifactId>dashlib</artifactId>
+			<version>1.4.4</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>edu.vu.isis</groupId>
+			<artifactId>ammolib</artifactId>
+			<version>1.4.3</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>1.6</version>
+			<scope>compile</scope>
+			<type>jar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>android</artifactId>
+			<version>2.2.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>edu.vu.isis</groupId>
+			<artifactId>ammogen</artifactId>
+			<version>1.4.3</version>
+			<scope>runtime</scope>
+		</dependency>
+
+	</dependencies>
+
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<finalName>dash</finalName>
+		<plugins>
+			<!-- Bug in release plugin prevents other plugin configurations from carrying 
+				through to child from parent, and forked maven process to create release 
+				POM will not use source 1.5 unless specified here. Lame... -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.0-alpha-2</version>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<files>
+								<file>ant.properties</file>
+								<file>maven.properties</file>
+							</files>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>generate-contract</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<ant antfile="${ammogen.maven.targets}" inheritAll="true" inheritRefs="true"/>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>ant-contrib</groupId>
+						<artifactId>ant-contrib</artifactId>
+						<version>1.0b3</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ant</groupId>
+								<artifactId>ant</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${ammogen.output.dir}</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+				<artifactId>android-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<sdk>
+						<platform>8</platform>
+					</sdk>
+					<emulator>
+						<avd>22</avd>
+					</emulator>
+					<deleteConflictingFiles>true</deleteConflictingFiles>
+					<undeployBeforeDeploy>true</undeployBeforeDeploy>
+					<!-- attachJar false required because deploying both jar and apk to 
+						Nexus appears to make APK inaccessible vai search -->
+					<attachJar>false</attachJar>
+					<jvmArguments>
+						<argument>-Xms1500m</argument>
+						<argument>-Xmx1500m</argument>
+					</jvmArguments>
+				</configuration>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

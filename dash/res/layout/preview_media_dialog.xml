@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:orientation="vertical" android:layout_gravity="center"
+	android:id="@+id/rootLayoutElement">
+
+	<LinearLayout android:id="@+id/previewMediaWrapper"
+		android:layout_height="wrap_content" android:layout_width="fill_parent"
+		android:orientation="horizontal"
+		android:paddingTop="3dip" android:paddingBottom="3dip"
+		android:layout_marginTop="3dip"
+		android:layout_gravity="center" android:gravity="center">
+		
+    </LinearLayout>
+		<!-- Preview Controls -->
+		<LinearLayout android:id="@+id/previewMediaControls"
+			android:layout_height="wrap_content" android:layout_width="fill_parent"
+			android:orientation="horizontal" android:background="#CCCCCC"
+			android:paddingTop="3dip" android:layout_marginTop="3dip"
+			android:layout_gravity="center">
+
+			<Button android:id="@+id/previewMediaDoneButton"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:text="Done" android:layout_weight="1" />
+
+	</LinearLayout>
+</LinearLayout>

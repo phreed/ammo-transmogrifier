@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:padding="10px">
+		<TextView android:id="@+id/ammo_template_manager_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:gravity="center" android:textColor="#FFFFFF"
+			android:textSize="28px" android:textStyle="bold"
+			android:text="&lt;No Report Provided&gt;" />
+		<View android:layout_width="fill_parent" android:layout_height="2px" 
+		android:background="@drawable/trans_white_trans_gradient" android:layout_marginTop="3px"
+		android:layout_marginBottom="10px"/>
+		
+		<View android:layout_width="fill_parent" android:layout_height="2px" 
+		android:background="@drawable/trans_white_trans_gradient" android:layout_marginTop="3px"
+		android:layout_marginBottom="10px"/>
+		
+		<FrameLayout android:id="@+id/ammo_template_manager_root" android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+		<LinearLayout android:layout_width="match_parent"
+			android:layout_height="wrap_content" android:layout_marginBottom="2dip"
+			android:gravity="center_horizontal|center_vertical"
+			android:visibility="gone">
+			
+			<!-- Camera Button -->
+			<LinearLayout android:id="@+id/cameraButton" style="@style/VerticalLinearLayout" android:background="@drawable/add_selector"
+				android:layout_width="wrap_content" android:layout_margin="10dip" android:focusable="true">
+				<ImageView style="@style/DashButton" android:src="@drawable/camera_button2" />
+				<TextView style="@style/CenteredText" android:text="Picture" />
+			</LinearLayout>
+
+			<!-- Audio Button -->
+			<LinearLayout android:id="@+id/audioButton" style="@style/VerticalLinearLayout" android:background="@drawable/add_selector"
+				android:layout_width="wrap_content" android:layout_margin="10dip" android:focusable="true">
+				<ImageView style="@style/DashButton" android:src="@drawable/audio_button2" />
+				<TextView style="@style/CenteredText" android:text="Audio" />
+			</LinearLayout>
+			
+			<!-- Icon / media preview -->
+			<ImageView android:id="@+id/mediaPreview"
+				android:layout_width="100dip" android:layout_height="100dip"
+				android:scaleType="fitCenter" android:visibility="gone" />
+			
+			<!-- Remove Button -->
+			<Button android:id="@+id/removeButton" android:text="Remove"
+				android:visibility="gone" android:gravity="center_vertical"
+				android:layout_margin="10dip" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_gravity="center_vertical" />
+
+		</LinearLayout>
+		
+		
+		<Button android:id="@+id/saveButton" android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10px" android:text="Post"
+			android:visibility="invisible"
+			 />
+	</LinearLayout>
+</ScrollView>

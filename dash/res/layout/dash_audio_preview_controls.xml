@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:layout_gravity="center" android:gravity="center">
+	<!--<MediaController android:id="@+id/dash_audio_preview_controls_media_controller"
+	android:layout_width="fill_parent" android:layout_height="200px" />
+	 -->
+	<ImageButton android:id="@+id/dash_audio_preview_controls_play"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_margin="10px"
+		android:text="Play" android:src="@drawable/dash_audio_play_selector"
+		android:background="@null" />
+		
+		<SeekBar android:id="@+id/dash_audio_preview_controls_seek_bar"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_margin="10px" />
+
+</LinearLayout>
