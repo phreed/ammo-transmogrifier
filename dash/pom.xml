@@ -77,6 +77,15 @@
 			<artifactId>ammogen</artifactId>
 			<version>1.4.3</version>
 			<scope>runtime</scope>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>edu.vu.isis</groupId>
+			<artifactId>ammogen</artifactId>
+			<version>1.4.3</version>
+			<scope>runtime</scope>
+			<type>xml</type>
+			<classifier>maven-targets</classifier>
 		</dependency>
 
 	</dependencies>
@@ -111,7 +120,6 @@
 						<configuration>
 							<files>
 								<file>ant.properties</file>
-								<file>maven.properties</file>
 							</files>
 						</configuration>
 					</execution>
@@ -127,7 +135,7 @@
 						<phase>generate-sources</phase>
 						<configuration>
 							<target>
-								<ant antfile="${ammogen.maven.targets}" inheritAll="true" inheritRefs="true"/>
+								<ant antfile="${edu.vu.isis:ammogen:xml:maven-targets}" inheritAll="true" inheritRefs="true"/>
 							</target>
 						</configuration>
 						<goals>
