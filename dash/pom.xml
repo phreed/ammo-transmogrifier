@@ -9,7 +9,7 @@
 		<ammogen.contract.file>contract/incident.xml</ammogen.contract.file>
 		<ammogen.schema.lib>edu.vu.isis:dashlib:jar</ammogen.schema.lib>
 		<ammogen.output.dir>${basedir}/target/generated-sources/ammogen</ammogen.output.dir>
-		<ammogen.maven.targets>${ammo.home}/AmmoGenerator/ant/maven-targets.xml</ammogen.maven.targets>
+		<ammogen.repo.url>http://fiddler.aterrasys.com:8081/nexus/content/repositories/vanderbilt</ammogen.repo.url>
 	</properties>
 	
 	<modelVersion>4.0.0</modelVersion>
@@ -22,14 +22,14 @@
 	<distributionManagement>
 		<repository>
 			<id>nexus</id>
-			<url>http://fiddler.aterrasys.com:8081/nexus/content/repositories/vanderbilt</url>
+			<url>${ammogen.repo.url}</url>
 		</repository>
 	</distributionManagement>
 
 	<repositories>
 		<repository>
 			<id>nexus</id>
-			<url>http://fiddler.aterrasys.com:8081/nexus/content/repositories/vanderbilt</url>
+			<url>${ammogen.repo.url}</url>
 		</repository>
 	</repositories>
 
@@ -52,7 +52,7 @@
 		<dependency>
 			<groupId>edu.vu.isis</groupId>
 			<artifactId>ammolib</artifactId>
-			<version>1.4.3</version>
+			<version>1.4.4</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
@@ -75,14 +75,14 @@
 		<dependency>
 			<groupId>edu.vu.isis</groupId>
 			<artifactId>ammogen</artifactId>
-			<version>1.4.3</version>
+			<version>1.4.4</version>
 			<scope>runtime</scope>
 			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>edu.vu.isis</groupId>
 			<artifactId>ammogen</artifactId>
-			<version>1.4.3</version>
+			<version>1.4.4</version>
 			<scope>runtime</scope>
 			<type>xml</type>
 			<classifier>maven-targets</classifier>
@@ -135,7 +135,9 @@
 						<phase>generate-sources</phase>
 						<configuration>
 							<target>
-								<ant antfile="${edu.vu.isis:ammogen:xml:maven-targets}" inheritAll="true" inheritRefs="true"/>
+								<ant antfile="${edu.vu.isis:ammogen:xml:maven-targets}" inheritAll="true" inheritRefs="true">
+									<target name="generate-provider"/>
+								</ant>
 							</target>
 						</configuration>
 						<goals>

@@ -8,7 +8,6 @@
 		<ammogen.template.file>template/ammo_content_provider.stg</ammogen.template.file>
 		<ammogen.contract.file>contract/incident.xml</ammogen.contract.file>
 		<ammogen.output.dir>${basedir}/target/generated-sources/ammogen</ammogen.output.dir>
-		<ammogen.maven.targets>${ammo.home}/AmmoGenerator/ant/maven-targets.xml</ammogen.maven.targets>
 	</properties>
 	
 	<modelVersion>4.0.0</modelVersion>
@@ -66,14 +65,14 @@
 		<dependency>
 			<groupId>edu.vu.isis</groupId>
 			<artifactId>ammogen</artifactId>
-			<version>1.4.3</version>
+			<version>1.4.4</version>
 			<scope>runtime</scope>
 		</dependency>
 
                 <dependency>
                         <groupId>edu.vu.isis</groupId>
                         <artifactId>ammogen</artifactId>
-                        <version>1.4.3</version>
+                        <version>1.4.4</version>
                         <scope>runtime</scope>
                         <type>xml</type>
                         <classifier>maven-targets</classifier>
@@ -106,7 +105,9 @@
 						<phase>generate-sources</phase>
 						<configuration>
 							<target>
-								<ant antfile="${edu.vu.isis:ammogen:xml:maven-targets}" inheritAll="true" inheritRefs="true"/>
+								<ant antfile="${edu.vu.isis:ammogen:xml:maven-targets}" inheritAll="true" inheritRefs="true">
+									<target name="generate-schema"/>
+								</ant>
 							</target>
 						</configuration>
 						<goals>
