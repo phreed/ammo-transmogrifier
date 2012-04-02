@@ -19,14 +19,14 @@
 
 	<distributionManagement>
 		<repository>
-			<id>nexus</id>
+			<id>nexus-vanderbilt</id>
 			<url>http://fiddler.aterrasys.com:8081/nexus/content/repositories/vanderbilt</url>
 		</repository>
 	</distributionManagement>
 
 	<repositories>
 		<repository>
-			<id>nexus</id>
+			<id>nexus-vanderbilt</id>
 			<url>http://fiddler.aterrasys.com:8081/nexus/content/repositories/vanderbilt</url>
 		</repository>
 	</repositories>
