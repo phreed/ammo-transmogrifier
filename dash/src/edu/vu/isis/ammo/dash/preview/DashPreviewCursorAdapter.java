@@ -38,7 +38,7 @@ import edu.vu.isis.ammo.dash.provider.IncidentSchema.MediaTableSchema;
  */
 public class DashPreviewCursorAdapter extends SimpleCursorAdapter {
 
-	private static final Logger logger = LoggerFactory.getLogger(DashPreviewCursorAdapter.class);
+	private static final Logger logger = LoggerFactory.getLogger("class.PreviewCursorAdapter");
 	// private Cursor mCursor;
 	private Context mContext;
 

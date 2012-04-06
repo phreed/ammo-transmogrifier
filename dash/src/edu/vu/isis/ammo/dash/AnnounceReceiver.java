@@ -45,7 +45,7 @@ import edu.vu.isis.ammo.dash.provider.IncidentSchemaBase;
  * 
  */
 public class AnnounceReceiver extends BroadcastReceiver {
-	private static final Logger logger = LoggerFactory.getLogger("dash-ar");
+	private static final Logger logger = LoggerFactory.getLogger("class.AnnounceReceiver");
 
 	static final String CORE_OPERATOR_ID = "CORE_OPERATOR_ID";
 	static final String CORE_SUBSCRIPTION_DONE = "CORE_SUBSCRIPTION_DONE";

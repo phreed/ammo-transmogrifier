@@ -38,7 +38,7 @@ import edu.vu.isis.ammo.dash.template.view.LocationView;
  */
 public class TemplateView extends TableLayout {
 
-	private static final Logger logger = LoggerFactory.getLogger(TemplateView.class);
+	private static final Logger logger = LoggerFactory.getLogger("class.TemplateView");
 
 	private Record data;
 	private String templateDisplayName;

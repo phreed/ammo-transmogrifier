@@ -44,7 +44,7 @@ import edu.vu.isis.ammo.dash.provider.IncidentSchemaBase.CategoryTableSchemaBase
  */
 public class IncidentProvider extends IncidentProviderBase {
 
-	private static final Logger logger = LoggerFactory.getLogger(IncidentProvider.class);
+	private static final Logger logger = LoggerFactory.getLogger("class.IncidentProvider");
 
 	public static final String MAIN_ICON = "MainIcon";
 	public static final int RESULT_CATEGORY_LOAD_SUCCESS = 1;

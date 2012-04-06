@@ -61,7 +61,7 @@ public class PreviewDialog extends AlertDialog implements OnClickListener{
 	// ===========================================================
 	// Constants
 	// ===========================================================
-	private static final Logger logger = LoggerFactory.getLogger(PreviewDialog.class);
+	private static final Logger logger = LoggerFactory.getLogger("class.PreviewDialog");
 	
 	/** View tags */
 	private static final int DONE_BUTTON_TAG = 1;

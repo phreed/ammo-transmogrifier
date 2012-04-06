@@ -22,7 +22,7 @@ import edu.vu.isis.ammo.dash.R;
  */
 public class AboutActivity extends Activity
 {
-    //public static final Logger logger = LoggerFactory.getLogger(AboutActivity.class);
+    //public static final Logger logger = LoggerFactory.getLogger("class.AboutActivity");
 //    private static final String TAG = "Dash:About";
 
     @Override

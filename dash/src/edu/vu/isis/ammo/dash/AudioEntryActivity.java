@@ -52,7 +52,7 @@ public class AudioEntryActivity extends Activity implements OnClickListener, OnI
 	// ===========================================================
 	// Constants
 	// ===========================================================
-    private static final Logger logger = LoggerFactory.getLogger(AudioEntryActivity.class);
+    private static final Logger logger = LoggerFactory.getLogger("class.AudioEntryActivity");
 	private static final String DIRECTORY_AUDIO = "support/Dash/ammo_audio";
 	public static String INCIDENT_UUID = "incident_uuid";
 	

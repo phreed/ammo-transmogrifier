@@ -58,7 +58,7 @@ import edu.vu.isis.ammo.dash.provider.IncidentSchemaBase.MediaTableSchemaBase;
  * platform ContactOperations provider.
  */
 public class IncidentSyncAdaptor extends AbstractThreadedSyncAdapter {
-	private final Logger logger = LoggerFactory.getLogger(IncidentSyncAdaptor.class);
+	private final Logger logger = LoggerFactory.getLogger("class.IncidentSyncAdaptor");
 
 	private final AccountManager accountManager;
 	@SuppressWarnings("unused")

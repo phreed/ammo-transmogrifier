@@ -46,7 +46,7 @@ public class LocationView implements GuiField {
 	// =====================
 	// Constants
 	// =====================
-    private static final Logger logger = LoggerFactory.getLogger(LocationView.class);
+    private static final Logger logger = LoggerFactory.getLogger("class.LocationView");
 	
 	private static final double DEFAULT_MAP_SCALE = 15;
 	private static final String MAP_PICKER_ACTIVITY = "android.intent.action.POINT_SELECT";

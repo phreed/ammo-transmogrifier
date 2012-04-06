@@ -51,7 +51,7 @@ import edu.vu.isis.ammo.dash.provider.IncidentSchema.EventTableSchema;
  * pieces shared between the sub-applications.
  */
 public abstract class DashAbstractActivity extends Activity {
-	private static final Logger logger = LoggerFactory.getLogger(DashAbstractActivity.class);
+	private static final Logger logger = LoggerFactory.getLogger("class.AbstractActivity");
 	private String id;
 	protected DashModel model;
 

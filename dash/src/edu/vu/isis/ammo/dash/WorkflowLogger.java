@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
  *
  */
 public class WorkflowLogger {
-	public static final Logger logger = LoggerFactory.getLogger("DashWorkflow");
+	public static final Logger logger = LoggerFactory.getLogger("class.Workflow");
 		
 	public static void log(String message) {
 		logger.debug(message);

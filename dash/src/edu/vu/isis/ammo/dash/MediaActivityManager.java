@@ -47,7 +47,7 @@ public class MediaActivityManager {
 	private MediaActivityManager() {
 	}
 	
-	private static final Logger logger = LoggerFactory.getLogger(MediaActivityManager.class);
+	private static final Logger logger = LoggerFactory.getLogger("class.MediaActivityManager");
 
 
 	public static Uri createPhotoUri(Context context) {

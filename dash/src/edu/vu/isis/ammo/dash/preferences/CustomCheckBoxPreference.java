@@ -27,7 +27,7 @@ public class CustomCheckBoxPreference extends CheckBoxPreference {
 	// ===========================================================
 	// Constants
 	// ===========================================================
-	public static final Logger logger = LoggerFactory.getLogger(CustomCheckBoxPreference.class);
+	public static final Logger logger = LoggerFactory.getLogger("class.CustomCheckBoxPreference");
 	
 	public static enum Type {
 		JOURNAL

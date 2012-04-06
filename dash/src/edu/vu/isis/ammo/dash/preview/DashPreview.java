@@ -55,7 +55,7 @@ import edu.vu.isis.ammo.dash.template.AmmoTemplateManagerActivity;
  * 
  */
 public class DashPreview extends ListActivity {
-	private static final Logger logger = LoggerFactory.getLogger(DashPreview.class);
+	private static final Logger logger = LoggerFactory.getLogger("class.Preview");
 	private static final int MENU_CONTEXT_PREVIEW_MEDIA = Menu.FIRST;
 	private static final int MENU_CONTEXT_PREVIEW_TEMPLATE = MENU_CONTEXT_PREVIEW_MEDIA + 1;
 	private static final int DIALOG_PREVIEW_ENTRY = 0;

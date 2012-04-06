@@ -30,7 +30,7 @@ import edu.vu.isis.ammo.api.AmmoPreference;
  *
  */
 public class ContactsUtil {
-	private static final Logger logger = LoggerFactory.getLogger(ContactsUtil.class);
+	private static final Logger logger = LoggerFactory.getLogger("class.ContactsUtil");
 	
 	private ContactsUtil() {}
 	

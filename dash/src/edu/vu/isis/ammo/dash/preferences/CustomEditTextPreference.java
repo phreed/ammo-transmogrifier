@@ -31,7 +31,7 @@ public class CustomEditTextPreference extends EditTextPreference {
 	// ===========================================================
 	// Constants
 	// ===========================================================
-	public static final Logger logger = LoggerFactory.getLogger(CustomEditTextPreference.class);
+	public static final Logger logger = LoggerFactory.getLogger("class.CustomEditTextPreference");
 	public static enum Type {
 		IP, PORT, DEVICE_ID, OPERATOR_ID, OPERATOR_KEY
 	};

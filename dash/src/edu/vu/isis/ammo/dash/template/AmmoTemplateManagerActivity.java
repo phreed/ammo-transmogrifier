@@ -48,7 +48,7 @@ import edu.vu.isis.ammo.dash.template.model.Record;
  */
 public class AmmoTemplateManagerActivity extends DashAbstractActivity {
 
-	private static final Logger logger = LoggerFactory.getLogger(AmmoTemplateManagerActivity.class);
+	private static final Logger logger = LoggerFactory.getLogger("class.TemplateManagerActivity");
 
 	private static final String BUNDLE_DATA = "data";
 	private long prevButtonTimestamp = 0;

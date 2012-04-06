@@ -38,7 +38,7 @@ import edu.vu.isis.ammo.util.CoordinateConversion;
  */
 public class Util {
 	private static final DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss MM-dd-yyyy", Locale.US);
-	private static final Logger logger = LoggerFactory.getLogger(Util.class);
+	private static final Logger logger = LoggerFactory.getLogger("class.Util");
 	
 	
 	private Util() {}

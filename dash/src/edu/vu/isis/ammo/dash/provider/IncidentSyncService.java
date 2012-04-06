@@ -22,7 +22,7 @@ import android.os.IBinder;
  * It instantiates the sync-adapter and returns its IBinder.
  */
 public class IncidentSyncService extends Service {
-	private final Logger logger = LoggerFactory.getLogger(IncidentSyncService.class);
+	private final Logger logger = LoggerFactory.getLogger("class.IncidentSyncService");
 
 	private static final Object locker = new Object();
 
