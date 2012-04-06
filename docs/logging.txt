@@ -1,0 +1,52 @@
+
+The logger we use in ammolib makes use of a logging configuration file.  
+The defaults may not give what you want (e.g. excessive ammo-parcel messages).  
+It would be best if you included an application specific configuration file.  
+For an example take a look in the new ammo-dash repository.  
+./dash/assets/logback.xml
+
+This file is provided for convenience the official documentation can be found at...
+http://qos-ch.github.com/logback-android/
+
+The breakdown of where logback looks for its configuration file is:
+
+ 1. SD card
+     /mnt/sdcard/logback/logback-test.xml
+     /mnt/sdcard/logback/logback.xml
+
+ 2. Android Manifest
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <!-- {...} -->
+    
+    <logback>
+        <configuration>
+            <appender
+                name="LOGCAT"
+                class="ch.qos.logback.classic.android.LogcatAppender" >
+                <tagEncoder>
+                    <pattern>%logger{0}</pattern>
+                </tagEncoder>
+                <encoder>
+                    <pattern>[%method] > %msg%n</pattern>
+                </encoder>
+            </appender>
+
+            <root level="TRACE" >
+                <appender-ref ref="LOGCAT" />
+            </root>
+        </configuration>
+    </logback>
+
+</manifest>
+  
+ 3. assets directory
+     ./assets/logback-test.xml
+     ./assets/logback.xml
+
+ 4. fall back to simple LogcatAppender.
+
