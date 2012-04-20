@@ -53,7 +53,10 @@ public class IncidentProvider extends IncidentProviderBase {
 
 	protected class IncidentDatabaseHelper extends IncidentProviderBase.IncidentDatabaseHelper {
 		protected IncidentDatabaseHelper(Context context) {
-			super(context, IncidentSchema.DATABASE_VERSION);
+			// super(context, IncidentSchema.DATABASE_VERSION);
+			
+			// Cause a memory based content provider to be used
+			super(context, null, null, IncidentSchema.DATABASE_VERSION);
 		}
 	}
 

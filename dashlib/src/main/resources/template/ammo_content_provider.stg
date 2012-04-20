@@ -408,6 +408,13 @@ protected class <dbHelperName(name=name)> extends SQLiteOpenHelper {
       super(context, <schemaNameBase(name=name)>.DATABASE_NAME, 
                null, version);
    }
+
+   /**
+    * Pass through to grand parent.
+    */
+   public <dbHelperName(name=name)>(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+      super(context, name, factory, version);
+   }
    
    
    // ===========================================================

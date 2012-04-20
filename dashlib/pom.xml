@@ -5,6 +5,7 @@
 	<properties>
 		<!-- ammogen properties -->		
 		<ammogen.type>schema</ammogen.type>		
+		<ammogen.version>1.4.7</ammogen.version>		
 		<ammogen.template.file>template/ammo_content_provider.stg</ammogen.template.file>
 		<ammogen.contract.file>contract/incident.xml</ammogen.contract.file>
 		<ammogen.output.dir>${basedir}/target/generated-sources/ammogen</ammogen.output.dir>
@@ -14,7 +15,7 @@
 	<groupId>edu.vu.isis</groupId>
 	<artifactId>dashlib</artifactId>
 	<packaging>jar</packaging>
-	<version>1.4.4</version>
+	<version>1.4.7</version>
 	<name>dashlib</name>
 
 	<distributionManagement>
@@ -65,14 +66,14 @@
 		<dependency>
 			<groupId>edu.vu.isis</groupId>
 			<artifactId>ammogen</artifactId>
-			<version>1.4.4</version>
+			<version>1.4.7</version>
 			<scope>runtime</scope>
 		</dependency>
 
                 <dependency>
                         <groupId>edu.vu.isis</groupId>
                         <artifactId>ammogen</artifactId>
-                        <version>1.4.4</version>
+			<version>1.4.7</version>
                         <scope>runtime</scope>
                         <type>xml</type>
                         <classifier>maven-targets</classifier>
