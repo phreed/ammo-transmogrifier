@@ -6,7 +6,6 @@
 		<!-- ammogen properties -->		
 		<ammogen.type>schema</ammogen.type>		
 		<ammogen.version>1.4.7</ammogen.version>		
-		<ammogen.template.file>template/ammo_content_provider.stg</ammogen.template.file>
 		<ammogen.contract.file>contract/incident.xml</ammogen.contract.file>
 		<ammogen.output.dir>${basedir}/target/generated-sources/ammogen</ammogen.output.dir>
 	</properties>
