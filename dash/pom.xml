@@ -9,26 +9,26 @@
 		<ammogen.contract.file>contract/incident.xml</ammogen.contract.file>
 		<ammogen.schema.lib>edu.vu.isis:dashlib:jar</ammogen.schema.lib>
 		<ammogen.output.dir>${basedir}/target/generated-sources/ammogen</ammogen.output.dir>
-		<ammogen.repo.url>http://fiddler.aterrasys.com:8081/nexus/content/repositories/vanderbilt</ammogen.repo.url>
+		<ammogen.repo.url>http://ammo.isis.vanderbilt.edu:8081/nexus/content/repositories/Vanderbilt</ammogen.repo.url>
 	</properties>
 	
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>edu.vu.isis</groupId>
 	<artifactId>dash</artifactId>
 	<packaging>apk</packaging>
-	<version>1.4.7</version>
+	<version>1.5.5</version>
 	<name>dash</name>
 
 	<distributionManagement>
 		<repository>
-			<id>nexus</id>
+			<id>nexus-vanderbilt</id>
 			<url>${ammogen.repo.url}</url>
 		</repository>
 	</distributionManagement>
 
 	<repositories>
 		<repository>
-			<id>nexus</id>
+			<id>nexus-vanderbilt</id>
 			<url>${ammogen.repo.url}</url>
 		</repository>
 	</repositories>
@@ -51,7 +51,7 @@
 		<dependency>
 			<groupId>edu.vu.isis</groupId>
 			<artifactId>dashlib</artifactId>
-	                <version>1.4.7</version>
+	                <version>1.5.5</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
@@ -59,7 +59,7 @@
 		<dependency>
 			<groupId>edu.vu.isis</groupId>
 			<artifactId>ammolib</artifactId>
-			<version>1.4.4</version>
+			<version>1.5.5</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
