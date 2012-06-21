@@ -82,14 +82,14 @@
 		<dependency>
 			<groupId>edu.vu.isis</groupId>
 			<artifactId>ammogen</artifactId>
-			<version>1.4.7</version>
+			<version>1.4.8</version>
 			<scope>runtime</scope>
 			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>edu.vu.isis</groupId>
 			<artifactId>ammogen</artifactId>
-			<version>1.4.7</version>
+			<version>1.4.8</version>
 			<scope>runtime</scope>
 			<type>xml</type>
 			<classifier>maven-targets</classifier>

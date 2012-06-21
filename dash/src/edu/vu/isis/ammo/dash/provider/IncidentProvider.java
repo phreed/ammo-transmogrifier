@@ -105,7 +105,7 @@ public class IncidentProvider extends IncidentProviderBase {
 
 	@Override
 	public boolean createDatabaseHelper() {
-		this.openHelper = new IncidentProviderBase.IncidentDatabaseHelper(getContext(), IncidentSchema.DATABASE_VERSION) {
+		this.openHelper = new IncidentProviderBase.IncidentDatabaseHelper(getContext(), IncidentSchema.DATABASE_NAME , IncidentSchema.DATABASE_VERSION) {
 			@Override
 			protected void preloadTables(SQLiteDatabase db) {
 				IncidentProvider.this.unzipAndPopulateCategories(db);
