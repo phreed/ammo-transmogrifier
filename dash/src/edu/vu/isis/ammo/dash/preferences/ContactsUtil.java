@@ -19,8 +19,9 @@ import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-import android.provider.ContactsContract.Data;
-import android.provider.ContactsContract.RawContacts;
+//import android.provider.ContactsContract.Data;
+//import android.provider.ContactsContract.RawContacts;
+import edu.vu.isis.ammo.api.AmmoContacts;
 import edu.vu.isis.ammo.INetPrefKeys;
 import edu.vu.isis.ammo.api.AmmoPreference;
 
@@ -55,66 +56,14 @@ public class ContactsUtil {
 			return null;
 		}
 		
-		//does a manual join.  the content provider probably won't let us do a real join.
-		long rawContactId = getRawContactId(context, userId);
-		if(rawContactId<0) {
-			return null;
-		}
-		return getUnit(context, rawContactId);
-	}
-	
-	
-	
-	private static long getRawContactId(Context context, String userId) {
-		Cursor c = null;
-		try {
-			String selection = Data.MIMETYPE + "=? AND " + Data.DATA1 + "=?";
-			String[] selectionArgs = { Constants.MIME_USERID, userId };
 
-			c = context.getContentResolver().query(Data.CONTENT_URI, new String[]{ Data.RAW_CONTACT_ID }, selection, selectionArgs, null);
-			if(c.getCount() < 1) {
-				logger.error("Could not getRawContactId.  No records found with userId of " + userId);
-				return -1;
-			}
-			c.moveToFirst();
-			return c.getLong(0);
-		}
-		catch(Exception e) {
-			logger.error("Could not getRawContactId: " + e, e);
-			return -1;
-		}
-		finally {
-			if(c != null) {
-				c.close();
-			}
-		}
+		AmmoContacts mData = AmmoContacts.newInstance(context);
+		AmmoContacts.Contact g = mData.getContactByUserId(userId);
+		if (g == null) return null;
+		
+		String unit = g.getUnit();
+		return unit;
+		
 	}
 	
-	private static String getUnit(Context context, long rawContactId) {
-		Cursor c = null;
-		try {
-			Uri rawContactUri = ContentUris.withAppendedId(RawContacts.CONTENT_URI, rawContactId);
-			Uri dataUri = Uri.withAppendedPath(rawContactUri, RawContacts.Data.CONTENT_DIRECTORY);
-			
-			String selection = RawContacts.Data.MIMETYPE + "=?";
-			String[] selectionArgs = { Constants.MIME_UNIT_NAME };
-			
-			c = context.getContentResolver().query(dataUri, new String[]{ RawContacts.Data.DATA1 }, selection, selectionArgs, null);
-			if(c.getCount() < 1) {
-				logger.error("Could not getUnit.  No records found with id of " + rawContactId);
-				return null;
-			}
-			c.moveToFirst();
-			return c.getString(0);
-		}
-		catch(Exception e) {
-			logger.error("Could not getUnit: " + e, e);
-			return null;
-		}
-		finally {
-			if(c != null) {
-				c.close();
-			}
-		}
-	}
 }
