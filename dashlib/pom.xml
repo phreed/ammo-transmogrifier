@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-		
+	<modelVersion>4.0.0</modelVersion>
+
 	<properties>
 		<!-- ammogen properties -->		
 		<ammogen.type>schema</ammogen.type>		
@@ -11,12 +12,16 @@
 		<ammo.repo.url>http://ammo.isis.vanderbilt.edu:8081/nexus/content/repositories/Vanderbilt</ammo.repo.url>
 	</properties>
 	
-	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>edu.vu.isis</groupId>
+		<artifactId>dash-parent</artifactId>
+		<version>1.5.14</version>
+	</parent>
 
 	<groupId>edu.vu.isis</groupId>
 	<artifactId>dashlib</artifactId>
 	<packaging>jar</packaging>
-	<version>1.5.5</version>
+	<version>1.5.14</version>
 	<name>dashlib</name>
 
 	<distributionManagement>
@@ -32,55 +37,6 @@
 			<url>${ammo.repo.url}</url>
 		</repository>
 	</repositories>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.6.4</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>edu.vu.isis</groupId>
-			<artifactId>ammolib</artifactId>
-			<version>1.5.5</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>1.6</version>
-			<scope>compile</scope>
-			<type>jar</type>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.android</groupId>
-			<artifactId>android</artifactId>
-			<version>2.2.1</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>edu.vu.isis</groupId>
-			<artifactId>ammogen</artifactId>
-			<version>1.5.5</version>
-			<scope>runtime</scope>
-		</dependency>
-
-                <dependency>
-                        <groupId>edu.vu.isis</groupId>
-                        <artifactId>ammogen</artifactId>
-			<version>1.5.5</version>
-                        <scope>runtime</scope>
-                        <type>xml</type>
-                        <classifier>maven-targets</classifier>
-                </dependency>
-
-	</dependencies>
 
 	<build>
 		<finalName>${project.artifactId}</finalName>

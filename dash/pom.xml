@@ -11,12 +11,18 @@
 		<ammogen.output.dir>${basedir}/target/generated-sources/ammogen</ammogen.output.dir>
 		<ammogen.repo.url>http://ammo.isis.vanderbilt.edu:8081/nexus/content/repositories/Vanderbilt</ammogen.repo.url>
 	</properties>
+
+	<parent>
+		<groupId>edu.vu.isis</groupId>
+		<artifactId>dash-parent</artifactId>
+		<version>1.5.14</version>
+	</parent>
 	
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>edu.vu.isis</groupId>
 	<artifactId>dash</artifactId>
 	<packaging>apk</packaging>
-	<version>1.5.5</version>
+	<version>1.5.14</version>
 	<name>dash</name>
 
 	<distributionManagement>
@@ -35,9 +41,10 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.6.4</version>
+			<groupId>edu.vu.isis</groupId>
+			<artifactId>dashlib</artifactId>
+	                <version>1.5.14</version>
+			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
 
@@ -47,56 +54,7 @@
 			<version>1.0.1</version>
 			<scope>compile</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>edu.vu.isis</groupId>
-			<artifactId>dashlib</artifactId>
-	                <version>1.5.5</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>edu.vu.isis</groupId>
-			<artifactId>ammolib</artifactId>
-			<version>1.5.5</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>1.6</version>
-			<scope>compile</scope>
-			<type>jar</type>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.android</groupId>
-			<artifactId>android</artifactId>
-			<version>2.2.1</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>edu.vu.isis</groupId>
-			<artifactId>ammogen</artifactId>
-			<version>1.4.7</version>
-			<scope>runtime</scope>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>edu.vu.isis</groupId>
-			<artifactId>ammogen</artifactId>
-			<version>1.4.7</version>
-			<scope>runtime</scope>
-			<type>xml</type>
-			<classifier>maven-targets</classifier>
-		</dependency>
-
 	</dependencies>
-
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
