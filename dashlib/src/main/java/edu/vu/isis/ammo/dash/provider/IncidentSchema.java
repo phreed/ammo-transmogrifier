@@ -13,6 +13,8 @@ package edu.vu.isis.ammo.dash.provider;
 public class IncidentSchema extends IncidentSchemaBase {
 
    public static final int DATABASE_VERSION = 4;
+      
+      public static final String DATABASE_NAME = "incident.db";
 
       public static class MediaTableSchema extends MediaTableSchemaBase {
 

@@ -2,14 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
+		
 	<properties>
 		<!-- ammogen properties -->		
 		<ammogen.type>schema</ammogen.type>		
 		<ammogen.version>1.4.7</ammogen.version>		
 		<ammogen.contract.file>contract/incident.xml</ammogen.contract.file>
 		<ammogen.output.dir>${basedir}/target/generated-sources/ammogen</ammogen.output.dir>
-		<ammo.repo.url>http://ammo.isis.vanderbilt.edu:8081/nexus/content/repositories/Vanderbilt</ammo.repo.url>
+        <ammo.release.url>http://ammo.isis.vanderbilt.edu:8081/nexus/content/repositories/Vanderbilt</ammo.release.url>
+        <ammo.snapshot.url>http://ammo.isis.vanderbilt.edu:8081/nexus/content/repositories/vanderbilt-snapshot</ammo.snapshot.url>
 	</properties>
 	
 	<parent>
@@ -27,14 +28,18 @@
 	<distributionManagement>
 		<repository>
 			<id>nexus-vanderbilt</id>
-			<url>${ammo.repo.url}</url>
+            <url>${ammo.release.url}</url>
 		</repository>
+        <snapshotRepository>
+            <id>nexus-snapshot</id>
+            <url>${ammo.snapshot.url}</url>
+        </snapshotRepository>
 	</distributionManagement>
 
 	<repositories>
 		<repository>
 			<id>nexus-vanderbilt</id>
-			<url>${ammo.repo.url}</url>
+            <url>${ammo.release.url}</url>
 		</repository>
 	</repositories>
 

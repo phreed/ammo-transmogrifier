@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	
+	<modelVersion>4.0.0</modelVersion>
+
 	<properties>
 		<!-- ammogen properties -->		
 		<ammogen.type>provider</ammogen.type>		
@@ -11,14 +12,13 @@
 		<ammogen.output.dir>${basedir}/target/generated-sources/ammogen</ammogen.output.dir>
 		<ammogen.repo.url>http://ammo.isis.vanderbilt.edu:8081/nexus/content/repositories/Vanderbilt</ammogen.repo.url>
 	</properties>
-
+	
 	<parent>
 		<groupId>edu.vu.isis</groupId>
 		<artifactId>dash-parent</artifactId>
 		<version>1.5.14</version>
 	</parent>
 	
-	<modelVersion>4.0.0</modelVersion>
 	<groupId>edu.vu.isis</groupId>
 	<artifactId>dash</artifactId>
 	<packaging>apk</packaging>
@@ -43,7 +43,7 @@
 		<dependency>
 			<groupId>edu.vu.isis</groupId>
 			<artifactId>dashlib</artifactId>
-	                <version>1.5.14</version>
+			<version>1.5.14</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
