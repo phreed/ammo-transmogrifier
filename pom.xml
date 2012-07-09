@@ -8,8 +8,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
     <build>${basedir}/build</build>
     <dist>${basedir}/dist</dist>
 
-    <vandylib.release.url>http://ammo.isis.vanderbilt.edu:8081/nexus/content/repositories/Vanderbilt/</vandylib.release.url>
-    <vandylib.snapshot.url>http://ammo.isis.vanderbilt.edu:8081/nexus/content/repositories/vanderbilt-snapshot/</vandylib.snapshot.url>
+    <vandy.release.url>http://ammo.isis.vanderbilt.edu:8081/nexus/content/repositories/Vanderbilt/</vandy.release.url>
+    <vandy.snapshot.url>http://ammo.isis.vanderbilt.edu:8081/nexus/content/repositories/vanderbilt-snapshot/</vandy.snapshot.url>
 
     <!-- ammogen properties -->
     <ammogen.version>1.5.14</ammogen.version>
@@ -34,63 +34,74 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
   <distributionManagement>
     <repository>
       <id>nexus-vanderbilt</id>
-      <url>${vandylib.release.url}</url>
+      <url>${vandy.release.url}</url>
     </repository>
     <snapshotRepository>
       <id>nexus-vanderbilt</id>
-      <url>${vandylib.snapshot.url}</url>
+      <url>${vandy.snapshot.url}</url>
     </snapshotRepository>
   </distributionManagement>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>1.6.4</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>edu.vu.isis</groupId>
-      <artifactId>ammolib</artifactId>
-      <version>1.5.14</version>
-      <type>jar</type>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>1.6</version>
-      <scope>compile</scope>
-      <type>jar</type>
-    </dependency>
-    <dependency>
-      <groupId>com.google.android</groupId>
-      <artifactId>android</artifactId>
-      <version>2.2.1</version>
-      <scope>provided</scope>
-    </dependency>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>edu.vu.isis</groupId>
+        <artifactId>ammolib</artifactId>
+        <version>1.5.14</version>
+        <type>jar</type>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>1.6</version>
+        <scope>compile</scope>
+        <type>jar</type>
+      </dependency>
+      <dependency>
+       <groupId>com.google.android</groupId>
+        <artifactId>android</artifactId>
+        <version>2.2.1</version>
+        <scope>provided</scope>
+      </dependency>
+  
+      <dependency>
+        <groupId>edu.vu.isis</groupId>
+        <artifactId>ammogen</artifactId>
+        <version>${ammogen.version}</version>
+        <scope>runtime</scope>
+      </dependency>
+      <dependency>
+        <groupId>edu.vu.isis</groupId>
+        <artifactId>ammogen</artifactId>
+        <version>${ammogen.version}</version>
+        <scope>runtime</scope>
+        <type>xml</type>
+        <classifier>maven-targets</classifier>
+      </dependency>
+  
+      <dependency>
+        <groupId>edu.vu.isis</groupId>
+        <artifactId>ammolib</artifactId>
+        <version>1.5.5</version>
+        <type>jar</type>
+        <scope>compile</scope>
+      </dependency>
 
-    <dependency>
-      <groupId>edu.vu.isis</groupId>
-      <artifactId>ammogen</artifactId>
-      <version>${ammogen.version}</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>edu.vu.isis</groupId>
-      <artifactId>ammogen</artifactId>
-      <version>${ammogen.version}</version>
-      <scope>runtime</scope>
-      <type>xml</type>
-      <classifier>maven-targets</classifier>
-    </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.6.4</version>
+        <scope>compile</scope>
+      </dependency>
 
-    <dependency>
-      <groupId>edu.vu.isis</groupId>
-      <artifactId>ammolib</artifactId>
-      <version>1.5.5</version>
-      <type>jar</type>
-      <scope>compile</scope>
-    </dependency>
-  </dependencies>
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback</artifactId>
+        <version>1.0.1</version>
+        <scope>compile</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
 </project>

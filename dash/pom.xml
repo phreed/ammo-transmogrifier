@@ -21,17 +21,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
   <version>${parent.version}</version>
   <name>dash</name>
 
-  <distributionManagement>
-    <repository>
-      <id>nexus-vanderbilt</id>
-      <url>${ammogen.repo.url}</url>
-    </repository>
-  </distributionManagement>
-
   <repositories>
     <repository>
       <id>nexus-vanderbilt</id>
-      <url>${ammogen.repo.url}</url>
+      <url>${vandy.release.url}</url>
     </repository>
   </repositories>
 
@@ -46,7 +39,49 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback</artifactId>
-      <version>1.0.1</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>edu.vu.isis</groupId>
+      <artifactId>ammolib</artifactId>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <scope>compile</scope>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>com.google.android</groupId>
+      <artifactId>android</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>edu.vu.isis</groupId>
+      <artifactId>ammogen</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>edu.vu.isis</groupId>
+      <artifactId>ammogen</artifactId>
+      <scope>runtime</scope>
+      <type>xml</type>
+      <classifier>maven-targets</classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>edu.vu.isis</groupId>
+      <artifactId>ammolib</artifactId>
+      <type>jar</type>
       <scope>compile</scope>
     </dependency>
   </dependencies>
