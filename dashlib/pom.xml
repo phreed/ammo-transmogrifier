@@ -13,10 +13,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
     <version>1.5.14</version>
   </parent>
 
-  <groupId>${parent.groupId}</groupId>
+  <groupId>edu.vu.isis</groupId>
   <artifactId>dashlib</artifactId>
   <packaging>jar</packaging>
-  <version>${parent.version}</version>
+  <version>1.5.14</version>
   <name>dashlib</name>
 
   <repositories>
@@ -81,11 +81,11 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
         <targetPath>${basedir}/target/classes</targetPath>
       </resource>
     </resources>
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.6</version>
         <executions>
           <execution>
             <id>generate-contract</id>
@@ -103,20 +103,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
             </goals>
           </execution>
         </executions>
-        <dependencies>
-          <dependency>
-            <groupId>ant-contrib</groupId>
-            <artifactId>ant-contrib</artifactId>
-            <version>1.0b3</version>
-            <exclusions>
-              <exclusion>
-                <groupId>ant</groupId>
-                <artifactId>ant</artifactId>
-              </exclusion>
-            </exclusions>
-          </dependency>
-        </dependencies>
       </plugin>
+
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
