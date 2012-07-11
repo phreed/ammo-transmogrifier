@@ -11,8 +11,9 @@ The Dash application (formerly QuickReports) allows the end-user to quickly crea
 Installation
 ------------
 
-Please see the script install-reg-apks.sh located in Dropbox/Streak Config Files/Vanderbilt. Run the script from that location to install all Vanderbilt AMMO apps on a connected Android device.
-
+The install can be performed using maven from the top level directory.
+mvn install;
+mvn --projects dash android:deploy
 
 Usage
 -----
@@ -20,8 +21,7 @@ Usage
 	------------------------
 	Before using this appplication, please make 
 	sure that the AmmoCore is started and is connected 
-	to the Gateway service. Please see README in the
-	"Vanderbilt Core" directory.
+	to the Gateway service. Please see README.
 
 
 	Starting Dash
