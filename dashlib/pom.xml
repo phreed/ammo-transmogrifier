@@ -13,10 +13,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
     <version>1.5.14</version>
   </parent>
 
-  <groupId>edu.vu.isis</groupId>
   <artifactId>dashlib</artifactId>
   <packaging>jar</packaging>
-  <version>1.5.14</version>
   <name>dashlib</name>
 
   <repositories>
