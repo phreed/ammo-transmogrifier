@@ -5,23 +5,28 @@ Vanderbilt Dash
 Description
 -----------
 
-The Dash application (formerly QuickReports) allows the end-user to quickly create spotreport-like notices with attached media and broadcast them to other users via a subscription mechanism in the AMMO infrastructure.
+The Dash application (formerly QuickReports) allows the end-user to quickly 
+create spotreport-like notices with attached media and broadcast 
+them to other users via a subscription mechanism in the AMMO infrastructure.
+
+The primary purpose of this project is to illustrate the proper use 
+of the Ammo middleware.
 
 
 Installation
 ------------
 
-Please see the script install-reg-apks.sh located in Dropbox/Streak Config Files/Vanderbilt. Run the script from that location to install all Vanderbilt AMMO apps on a connected Android device.
-
+The install can be performed using maven from the top level directory.
+mvn install;
+mvn --projects dash android:deploy
 
 Usage
 -----
 	Prerequisites
 	------------------------
-	Before using this appplication, please make 
+	Before using this application, please make 
 	sure that the AmmoCore is started and is connected 
-	to the Gateway service. Please see README in the
-	"Vanderbilt Core" directory.
+	to the Gateway service. Please see README.
 
 
 	Starting Dash

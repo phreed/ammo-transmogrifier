@@ -1,0 +1,10 @@
+To be productive in eclipse you will need the following:
+- the m2eclipse eclipse plug-in
+- construct named configurations with the following names and targets;
+dash-parent : install
+android-deploy : --projects dash package android:deploy
+
+The first of these builds dashlib and installs it in your local repository.
+The second builds dash and installs it on all attached devices.
+
+ 
