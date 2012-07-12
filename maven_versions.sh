@@ -4,7 +4,6 @@
 
 newversion=$1
 
-
 # Checks the input to ensure it is a valid version number.
 # if it isn't, output error message and don't edit files
 if [[ ${1} =~ [0-9]*\.[0-9]*\.[0-9]*.* ]]
@@ -35,7 +34,7 @@ Documentation in Perl's Plain Old Documentation (POD) format. Requires perl-doc 
 
 =head1 NAME
 
-maven_versions.sh--Updates maven POM files for AMMO project build.
+maven_versions.sh -- Updates maven POM files for AMMO project build.
 
 =head1 SYNOPSIS
 
@@ -43,7 +42,7 @@ maven_versions.sh <new version>
 
 =head1 DESCRIPTION
 
-Very basic shell script to update versions and repositories in four maven POM files (for AmmoGenerator, AmmoLib, JavaGatewayConnector, and the ammo-parent POM) based on user input.
+Very basic shell script to update versions for maven POM files 
 
 =cut
 

@@ -36,4 +36,6 @@
 <string name="custom_spinner_prompt">Select a template</string>
 <string name="no_records_found">No records found</string>
 <string name="option_menu_register">Register</string>
+<string name="clear">Clear</string>
+<string name="selected_media">selected media</string>
 </resources>
