@@ -13,9 +13,11 @@ package edu.vu.isis.ammo.dash.template.parsing;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.SimpleTimeZone;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -47,9 +49,6 @@ import edu.vu.isis.ammo.dash.template.view.PulldownView;
  * is set up in such a way that it can be if needed) to read the template xml files. Certain 
  * attributes supported for different widgets are defined below.
  * 
- * Questions about how the parsing works should be directed to Alan (if he's still working here) or Fred.
- * 
- * @author Demetri Miller
  * 
  */
 public class AmmoParser {
@@ -157,9 +156,16 @@ public class AmmoParser {
 	 * their contents.
 	 * @param context
 	 */
+	private static final SimpleDateFormat GMT_FORMAT;
+	static {
+		GMT_FORMAT = new SimpleDateFormat();
+		GMT_FORMAT.setTimeZone(new SimpleTimeZone(0, "GMT"));
+		GMT_FORMAT.applyPattern("dd MMM yyyy HH:mm:ss z");
+	}
+	
 	private static void setupPrepop(Context context) {
 		Date time = new Date();
-		prepopMap.put(PREPOP_TIME_FORMATTED, time.toGMTString());
+		prepopMap.put(PREPOP_TIME_FORMATTED, GMT_FORMAT.format(time));
 		prepopMap.put(PREPOP_TIME_UTC, String.valueOf(time.getTime()));
 		prepopMap.put(PREPOP_UNIT, ContactsUtil.getUnit(context));
 	}

@@ -268,8 +268,9 @@ public class DashPreview extends ListActivity {
 			File file = new File(previewDataPath);
 			String jsonData = null;
 			byte[] bytes = new byte[(int) file.length()];
+			FileInputStream fis = null;
 			try {
-				FileInputStream fis = new FileInputStream(file);
+				fis = new FileInputStream(file);
 				int bytesRead = 1;
 				while (bytesRead > 0) {
 					bytesRead = fis.read(bytes);
@@ -280,6 +281,14 @@ public class DashPreview extends ListActivity {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
+			} finally {
+				//try {
+				if (fis != null)
+					try {
+						fis.close();
+					} catch (IOException ex) {
+                        logger.error("could not close {}", file, ex);
+					}
 			}
 
 			WorkflowLogger.log("DashPreview - previewing data with type: " + dataType + " at path: " + previewDataPath);

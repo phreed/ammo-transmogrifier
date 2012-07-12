@@ -10,20 +10,15 @@ purpose whatsoever, and to have or authorize others to do so.
 */
 package edu.vu.isis.ammo.dash.preferences;
 
-import edu.vu.isis.ammo.launch.constants.Constants;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import android.content.ContentUris;
 import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
+import edu.vu.isis.ammo.INetPrefKeys;
+import edu.vu.isis.ammo.api.AmmoContacts;
+import edu.vu.isis.ammo.api.AmmoPreference;
 //import android.provider.ContactsContract.Data;
 //import android.provider.ContactsContract.RawContacts;
-import edu.vu.isis.ammo.api.AmmoContacts;
-import edu.vu.isis.ammo.INetPrefKeys;
-import edu.vu.isis.ammo.api.AmmoPreference;
 
 /**
  * Convenience class used for accessing user information stored in the contacts tables.

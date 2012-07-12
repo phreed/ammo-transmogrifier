@@ -127,7 +127,7 @@ public class IncidentProvider extends IncidentProviderBase {
 	public boolean unzipAndPopulateCategories(SQLiteDatabase db) {
 		try {
 			// If the folder exists, blow it away and recreate it.
-			this.clearBlobCache("tigr", "png");
+			IncidentProvider.clearBlobCache("tigr", "png");
 
 			// Read our zip folder and write the contents to the sd card.
 			// File format is as follows...
@@ -163,8 +163,13 @@ public class IncidentProvider extends IncidentProviderBase {
 				final long record = db.insert(Tables.CATEGORY_TBL, CategoryTableSchemaBase.MAIN_CATEGORY, values);
 
 				final File filePath = blobFile("category", Integer.toString((int) record), "icon");
-				final FileOutputStream fos = new FileOutputStream(filePath);
-				fos.write(buffer);
+				FileOutputStream fos = null;
+				try {
+					fos = new FileOutputStream(filePath);
+					fos.write(buffer);
+				} finally {
+					if (fos != null) fos.close();
+				}
 			}
 
 			return true;

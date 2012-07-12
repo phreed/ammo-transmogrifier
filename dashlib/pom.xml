@@ -10,7 +10,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
   <parent>
     <groupId>edu.vu.isis</groupId>
     <artifactId>dash-parent</artifactId>
-    <version>1.5.14</version>
+    <version><!--@VERSION-->1.5.15-SNAPSHOT<!--VERSION@--></version>
   </parent>
 
   <artifactId>dashlib</artifactId>
@@ -20,7 +20,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
   <repositories>
     <repository>
       <id>nexus-vanderbilt</id>
-      <url>${vandy.release.url}</url>
+      <url>${vandy.snapshot.url}</url>
     </repository>
   </repositories>
 
