@@ -203,7 +203,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 	              <pluginExecutionFilter>
 	                 <groupId>org.codehaus.mojo</groupId>
 	        		<artifactId>properties-maven-plugin</artifactId>
-	                <versionRange>[1.0.0,)</versionRange>
+	                <versionRange>[1.0-alpha-2,)</versionRange>
 	                <goals>
 	                  <goal>read-project-properties</goal>
 	                </goals>
