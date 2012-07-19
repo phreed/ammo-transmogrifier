@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableRow xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
 
-	<TextView android:id="@+id/pulldown_view_label" android:textColor="#FFFFFF" />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="40"
+        android:id="@+id/pulldown_view_label"
+        android:textColor="#FFFFFF" />
 
-	<Spinner android:id="@+id/pulldown_view_spinner" />
-
-</TableRow>
+    <Spinner android:id="@+id/pulldown_view_spinner"
+        android:layout_width="0dp"
+        android:layout_weight="60"
+        android:layout_height="match_parent" />
+</LinearLayout>

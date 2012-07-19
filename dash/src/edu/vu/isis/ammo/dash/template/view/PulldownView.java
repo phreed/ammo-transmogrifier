@@ -10,11 +10,9 @@ purpose whatsoever, and to have or authorize others to do so.
 */
 package edu.vu.isis.ammo.dash.template.view;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -25,6 +23,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import edu.vu.isis.ammo.dash.R;
 import edu.vu.isis.ammo.dash.template.parsing.AmmoParser;
+import edu.vu.isis.ammo.dash.template.parsing.ViewParsers;
 
 /**
  * Collapseable view used to display a predefined set of values.
@@ -39,28 +38,14 @@ public class PulldownView implements GuiField {
 	private Spinner spinner;
 	private TextView textView;
 	private ViewGroup viewGroup;
-	private ArrayList<String> values = new ArrayList<String>();
+	private List<String> values;
 	private String id, labelValue;
 	
 	// =====================
 	// Lifecycle
 	// =====================
 	public PulldownView(Context context, Element eNode) {
-		NodeList children = eNode.getChildNodes();
-		
-		for (int i=0; i<children.getLength(); i++) {
-			if (children.item(i).getNodeType() != Node.ELEMENT_NODE) {
-				continue;
-			}
-		
-			Element child = (Element)children.item(i);
-			if (child.getChildNodes().item(0).getNodeType() != Node.TEXT_NODE) {
-				continue;
-			}
-			
-			String text = child.getChildNodes().item(0).getNodeValue();
-			values.add(text);
-		}
+		values = ViewParsers.getTextFromChildNodes(eNode);
 		
 		viewGroup = (ViewGroup)LayoutInflater.from(context).inflate(R.layout.template_pulldown_view, null);
 		TextView label = (TextView)viewGroup.findViewById(R.id.pulldown_view_label);

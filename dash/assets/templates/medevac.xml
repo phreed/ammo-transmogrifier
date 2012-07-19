@@ -1,49 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<template type="medevac" label="MEDEVAC Report">
-	<location id="Pick-up location" hint="Tap Button to Grab Location" prepop="location" text="31NAA6602100000" />
-	<text id="Radio freq" />
-	<text id="Callsign"/>
-	<pulldown id="Precedence">
-		<choice>Urgent</choice>
-		<choice>Urgent Surgical</choice>
-		<choice>Priority</choice>
-		<choice>Routine</choice>
-		<choice>Convenience</choice>
-	</pulldown>
-	
-	<pulldown id="Sp.EQPMT REQ">
-		<choice>None</choice>
-		<choice>Hoist</choice>
-		<choice>Extraction EQMT</choice>
-		<choice>Ventilator</choice>
-	</pulldown>
+<template type="medevac" label="Medevac">
 
-	<text id="Num. Pnts" />
-	<pulldown id="Transpt Type">
-		<choice>Litter</choice>
-		<choice>Ambulatory</choice>
-	</pulldown>
+	<location id="Request location" />
+
+	<drawline/>
+
+	<header id="radioHeader" label="Radio" />
+	<text id="radioFrequencyText" label="Radio frequency" type="numberDecimal" />
+	<text id="radioCallSign" label="Radio callsign" type="text"/>
+
+	<drawline/>
+
+	<header id="numOfPatientsPrec" label="Number of patients by precedence"/>
+	<text id="urgent" label="A - Urgent" type="number"/>
+	<text id="uSurgical" label="B - Urgent Surgical" type="number"/>
+	<text id="priority" label="C - Priority" type="number"/>
+	<text id="routine" label="D - Routine" type="number"/>
+	<text id="convenience" label="E - Convenience" type="number"/>
+
+	<drawline/>
+
+	<checkgroup id="specialEquipment" label="Special equipment required">
+		<choice>A - None</choice>
+		<choice>B - Hoist</choice>
+		<choice>C - Extraction equipment</choice>
+		<choice>D - Ventilator</choice>
+	</checkgroup>
+
+	<drawline/>
+
+	<header id="numOfPatients" label="Number of patients"/>
+	<text id="litter" label="A - Litter" type="number"/>
+	<text id="ambulatory" label="B - Ambulatory" type="number"/>
 	
-	<pulldown id="Pickup Site Marking">
-		<choice>Panels</choice>
-		<choice>Pyrotechnic Signal</choice>
-		<choice>Smoke Signal</choice>
-		<choice>None</choice>
-		<choice>Other</choice>
-	</pulldown>
+	<drawline/>
+
+	<radiogroup id="securityAtPickUp" label="Security at pick-up site">
+		<choice>N - No enemy troops in area</choice>
+		<choice>P - Possible enemy troops in area (approach with caution)</choice>
+		<choice>E - Enemy troops in area (approach with caution)</choice>
+		<choice>X - Enemy troops in area (armed escort required)</choice>
+	</radiogroup>
 	
-	<pulldown id="Pnt Nationality &amp; Status">
-		<choice>US Military</choice>
-		<choice>US Civilian</choice>
-		<choice>Non-US military</choice>
-		<choice>Non-US civilian</choice>
-		<choice>EPW</choice>
-	</pulldown>
-	
-	<pulldown id="NBC Contamination">
-		<choice>None</choice>
-		<choice>Nuclear</choice>
-		<choice>Biological</choice>
-		<choice>Chemical</choice>
-	</pulldown>
+	<drawline/>
+
+	<checkgroup id="markingPickUp" label="Method of marking pick-up site">
+		<choice>A - Panels</choice>
+		<choice>B - Pyrotechnic Signal</choice>
+		<choice>C - Smoke signal</choice>
+		<choice>D - None</choice>
+		<choice>E - Other</choice>
+	</checkgroup>
+
+	<drawline/>
+
+	<header id="patientNatiAndStat" label="Patient nationality and status"/>
+	<text id="usMil" label="A - US military" type="number"/>
+	<text id="usCiv" label="B - US civilian" type="number"/>
+	<text id="nonUSMil" label="C - Non-US military" type="number"/>
+	<text id="nonUSCiv" label="D - Non-US civilian" type="number"/>
+	<text id="epw" label="E - EPW" type="number"/>
+
+	<drawline/>
+
+	<text id="zone" label="Pick up Zone/Description of Terrain/Obstacles" type="text"/>
+
 </template>

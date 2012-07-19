@@ -70,8 +70,8 @@ public class LocationView implements GuiField {
 	// Lifecycle/Location Mgm
 	// =====================
 	/**
+	 * @param activity the activity in which this widget is used
 	 * @param eNode if this is null, then we will try to create you a normal widget.
-	 * @param location if this is null, then GPS coordinates will get filled in when the come.
 	 */
 	public LocationView(Activity activity, Element eNode) {
 		this.activity = activity;

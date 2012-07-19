@@ -7,7 +7,7 @@ The US government has the right to use, modify, reproduce, release,
 perform, display, or disclose computer software or computer software 
 documentation in whole or in part, in any manner and for any 
 purpose whatsoever, and to have or authorize others to do so.
-*/
+ */
 package edu.vu.isis.ammo.dash.template;
 
 import java.io.Closeable;
@@ -20,7 +20,6 @@ import java.io.OutputStream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -41,28 +40,29 @@ import edu.vu.isis.ammo.dash.WorkflowLogger;
 import edu.vu.isis.ammo.dash.template.model.Record;
 
 /**
- * Main activity for DashTemplate. This activity lets a user select a template (if none selected) and serialization of template data 
- * (actual parsing is off-loaded to AmmoParser).
+ * Main activity for DashTemplate. This activity lets a user select a template
+ * (if none selected) and serialization of template data (actual parsing is
+ * off-loaded to AmmoParser).
+ * 
  * @author demetri
- *
+ * 
  */
 public class AmmoTemplateManagerActivity extends DashAbstractActivity {
 
-	private static final Logger logger = LoggerFactory.getLogger("class.TemplateManagerActivity");
+	private static final Logger logger = LoggerFactory
+			.getLogger("class.TemplateManagerActivity");
 
 	private static final String BUNDLE_DATA = "data";
 	private long prevButtonTimestamp = 0;
 
 	private TemplateView templateView;
-	
+
 	public static final String TEMPLATE_EXTRA = "TEMPLATE";
 	public static final String JSON_DATA_EXTRA = "JSON_DATA";
 	public static final String TEXT_DATA_EXTRA = "TEXT_DATA";
 	public static final String LOCATION_EXTRA = "LOCATION_EXTRA";
 	public static final String LOCATION_FIELD_ID_EXTRA = "LOCATION_FIELD_ID";
 	public static final String TEMPLATE_NAME_KEY = "TEMPLATE_NAME";
-	
-
 
 	// =============================
 	// Lifecycle
@@ -72,12 +72,12 @@ public class AmmoTemplateManagerActivity extends DashAbstractActivity {
 		super.onCreate(savedInstanceState);
 		WorkflowLogger.log("AmmoTemplateManagerActivity - onCreate");
 	}
-	
+
 	@Override
 	public int getContentViewResourceId() {
 		return R.layout.template_manager_activity;
 	}
-	
+
 	@Override
 	public void onBackPressed() {
 		logger.debug("onBackPressed Called");
@@ -106,19 +106,19 @@ public class AmmoTemplateManagerActivity extends DashAbstractActivity {
 		super.onSaveInstanceState(bundle);
 		bundle.putString(BUNDLE_DATA, toJson(templateView.getData()));
 	}
-	
+
 	@Override
 	protected void toModel() {
 		super.toModel();
 		model.setDescription(templateView.getTemplateDisplayName());
 		model.setTemplateData(toJson(templateView.getData()));
-		
+
 		if (templateView.locationView != null) {
-			model.setLocation(templateView.locationView.getLocation());	
+			model.setLocation(templateView.locationView.getLocation());
 		}
-		
+
 	}
-	
+
 	@Override
 	protected void fromModel() {
 		super.fromModel();
@@ -140,7 +140,7 @@ public class AmmoTemplateManagerActivity extends DashAbstractActivity {
 	}
 
 	/**
-	 * Called after setContentView.  Don't forget super.setupView();
+	 * Called after setContentView. Don't forget super.setupView();
 	 */
 	@Override
 	protected void setupView() {
@@ -149,20 +149,21 @@ public class AmmoTemplateManagerActivity extends DashAbstractActivity {
 		findViewById(R.id.saveButton).setVisibility(getEditVisibility());
 		findViewById(R.id.cameraButton).setVisibility(getEditVisibility());
 		findViewById(R.id.audioButton).setVisibility(getEditVisibility());
-		
+
 		templateView = new TemplateView(this, isOpenForEdit());
 
 		String templateFilename = getIntent().getStringExtra(TEMPLATE_EXTRA);
-		final Location location = getIntent().getParcelableExtra(LOCATION_EXTRA);
+		final Location location = getIntent()
+				.getParcelableExtra(LOCATION_EXTRA);
 		String jsonData = getIntent().getStringExtra(JSON_DATA_EXTRA);
-		
+
 		if (jsonData != null && jsonData.length() != 0) {
-			if(!templateView.loadTemplateFromJson(jsonData, location)) {
+			if (!templateView.loadTemplateFromJson(jsonData, location)) {
 				finish();
 			}
 
-		} else if(templateFilename != null) {
-			if(!templateView.loadTemplate(templateFilename, location)) {
+		} else if (templateFilename != null) {
+			if (!templateView.loadTemplate(templateFilename, location)) {
 				finish();
 			}
 		} else {
@@ -170,18 +171,23 @@ public class AmmoTemplateManagerActivity extends DashAbstractActivity {
 			final String[] displayTemplates = stripExtensionFromStringArray(getTemplateFiles(this));
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("Pick a form");
-			builder.setItems(displayTemplates, new DialogInterface.OnClickListener() {
-				@Override
-				public void onClick(DialogInterface dialog, int item) {
-					// Get the template based on item position.
-					String[] templates = getTemplateFiles(AmmoTemplateManagerActivity.this);
-					if(!templateView.loadTemplate(templates[item], location)) {
-						finish();
-					}
-					templateView.getData().setField(TEMPLATE_NAME_KEY, templates[item]);
-					((TextView)findViewById(R.id.ammo_template_manager_label)).setText(templateView.getTemplateDisplayName());
-				}
-			});
+			builder.setItems(displayTemplates,
+					new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int item) {
+							// Get the template based on item position.
+							String[] templates = getTemplateFiles(AmmoTemplateManagerActivity.this);
+							if (!templateView.loadTemplate(templates[item],
+									location)) {
+								finish();
+							}
+							templateView.getData().setField(TEMPLATE_NAME_KEY,
+									templates[item]);
+							((TextView) findViewById(R.id.ammo_template_manager_label))
+									.setText(templateView
+											.getTemplateDisplayName());
+						}
+					});
 			builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
 				@Override
 				public void onCancel(DialogInterface dialog) {
@@ -191,30 +197,32 @@ public class AmmoTemplateManagerActivity extends DashAbstractActivity {
 			AlertDialog alert = builder.create();
 			alert.show();
 		}
-		
+
 		// Set the header for the template.
-		((TextView)findViewById(R.id.ammo_template_manager_label)).setText(templateView.getTemplateDisplayName());
-		ViewGroup viewRoot = (ViewGroup)findViewById(R.id.ammo_template_manager_root);
+		((TextView) findViewById(R.id.ammo_template_manager_label))
+				.setText(templateView.getTemplateDisplayName());
+		ViewGroup viewRoot = (ViewGroup) findViewById(R.id.ammo_template_manager_root);
 		viewRoot.addView(templateView);
 	}
-	
+
 	public static String[] getTemplateFiles(Context context) {
 		checkFiles(context);
 		return getTemplateFilesDoNotCheck();
 	}
-	
+
 	public static String toJson(Record data) {
 		return new Gson().toJson(data);
 	}
-	
+
 	public static Record fromJson(String json) {
 		return new Gson().fromJson(json, Record.class);
 	}
 
 	/**
-	 * Gets the template files from assets and copies them to the sd card.
-	 * We copy to the SD card for convenience purposes and it also allows us
-	 * to display all templates in a list.
+	 * Gets the template files from assets and copies them to the sd card. We
+	 * copy to the SD card for convenience purposes and it also allows us to
+	 * display all templates in a list.
+	 * 
 	 * @param context
 	 */
 	/* package */static void checkFiles(Context context) {
@@ -231,20 +239,24 @@ public class AmmoTemplateManagerActivity extends DashAbstractActivity {
 				try {
 					if (destination.exists()) {
 						if (destination.isDirectory()) {
-							throw new IOException("File '" + destination + "' exists but is a directory");
+							throw new IOException("File '" + destination
+									+ "' exists but is a directory");
 						}
 						if (destination.canWrite() == false) {
-							throw new IOException("File '" + destination + "' cannot be written to");
+							throw new IOException("File '" + destination
+									+ "' cannot be written to");
 						}
 					} else {
 						File parent = destination.getParentFile();
 						if (parent != null) {
 							if (!parent.mkdirs() && !parent.isDirectory()) {
-								throw new IOException("Directory '" + parent + "' could not be created");
+								throw new IOException("Directory '" + parent
+										+ "' could not be created");
 							}
 						}
 					}
-					final FileOutputStream output = new FileOutputStream(destination, false);
+					final FileOutputStream output = new FileOutputStream(
+							destination, false);
 					try {
 						copy(source, output);
 					} finally {
@@ -270,7 +282,8 @@ public class AmmoTemplateManagerActivity extends DashAbstractActivity {
 		}
 	}
 
-	private static int copy(InputStream input, OutputStream output) throws IOException {
+	private static int copy(InputStream input, OutputStream output)
+			throws IOException {
 		long count = copyLarge(input, output);
 		if (count > Integer.MAX_VALUE) {
 			return -1;
@@ -294,6 +307,7 @@ public class AmmoTemplateManagerActivity extends DashAbstractActivity {
 
 	/**
 	 * Pull the template files from the assets folders and return them.
+	 * 
 	 * @param context
 	 * @return
 	 */
@@ -306,7 +320,7 @@ public class AmmoTemplateManagerActivity extends DashAbstractActivity {
 		}
 		return templates;
 	}
-	
+
 	private static String[] getTemplateFilesDoNotCheck() {
 		return Dash.TEMPLATE_DIR.list(new FilenameFilter() {
 			@Override
@@ -315,7 +329,7 @@ public class AmmoTemplateManagerActivity extends DashAbstractActivity {
 			}
 		});
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
