@@ -1,17 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableRow xmlns:android="http://schemas.android.com/apk/res/android">
-	<TextView android:id="@+id/location_view_label"
-		android:layout_height="fill_parent" android:gravity="center_vertical"
-		android:textColor="#FFFFFF"/>
-	<LinearLayout android:id="@+id/location_view_values"
-		android:gravity="center_vertical">
-		<TextView android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:id="@+id/location_view_field"
-			android:layout_weight="100" android:text="31NAA6602100000"
-			android:textSize="16dp"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
 
-		<ImageButton android:id="@+id/location_view_map_picker_button"
-			style="@style/DashButton" android:src="@drawable/ic_menu_compass"
-			android:layout_weight="0" android:visibility="visible"/>
-	</LinearLayout>
-</TableRow>
+    <TextView
+        android:id="@+id/location_view_label"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="40"
+        android:gravity="center_vertical"
+        android:textColor="#FFFFFF" />
+
+    <LinearLayout
+        android:id="@+id/location_view_values"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="60"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/location_view_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:text="31NAA6602100000"
+            android:textSize="16dp"
+            tools:ignore="NestedWeights,HardcodedText" />
+
+        <ImageButton
+            android:id="@+id/location_view_map_picker_button"
+            style="@style/DashButton"
+            android:layout_weight="0"
+            android:src="@drawable/ic_menu_compass"
+            android:visibility="visible"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+</LinearLayout>
