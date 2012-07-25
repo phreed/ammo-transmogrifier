@@ -12,7 +12,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
     <vandy.snapshot.url>http://ammo.isis.vanderbilt.edu:8081/nexus/content/repositories/vanderbilt-snapshot/</vandy.snapshot.url>
 
     <!-- ammogen properties -->
-    <ammogen.version>1.5.14</ammogen.version>
+    <ammogen.version>1.5.15-SNAPSHOT</ammogen.version>
     <ammogen.template.file>template/ammo_content_provider.stg</ammogen.template.file>
     <ammogen.contract.file>contract/incident.xml</ammogen.contract.file>
     <ammogen.schema.lib>edu.vu.isis:dashlib:jar</ammogen.schema.lib>
